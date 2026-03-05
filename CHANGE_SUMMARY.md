@@ -14,3 +14,4 @@
 - 2026-03-05: Added low-mast optimization warnings and edge-level mast-height propagation to keep link-analysis profiles consistent with the mast used during optimization.
 - 2026-03-05: Added cluster-count propagation (`num_clusters`) from route pipeline summaries and strict-LOS disconnect guidance in mesh-generator status/report output.
 - 2026-03-05: Fixed greedy tail behavior in mesh_calculator: unreachable route endpoints are no longer force-appended, reducing artificial endpoint tower clustering.
+- 2026-03-05: Fixed mesh-generator project load parameter precedence so `config.yaml` settings (e.g., `mast_height_m`) override stale `status.json` values; prevents DP/greedy reruns from silently using old low-mast parameters.
