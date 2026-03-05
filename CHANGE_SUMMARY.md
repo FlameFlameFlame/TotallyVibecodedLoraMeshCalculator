@@ -26,3 +26,5 @@
 - 2026-03-06: Corrected tower-coverage search ring sizing from edge-length-based to center-step-based expansion (plus safety ring), significantly reducing candidate over-expansion at higher coverage resolutions.
 - 2026-03-06: Improved runtime coverage responsiveness by batching LOS pair work in mesh_calculator and removing unnecessary LOS cache overhead in mesh-generator coverage execution.
 - 2026-03-06: Added regression tests for source-resolution snapping (`mesh_calculator`) and out-of-range coverage resolution rejection (`mesh-generator`).
+- 2026-03-06: Reworked mesh-generator runtime tower-coverage UX into explicit `Manual (map click)` and `Existing towers` source modes, with automatic post-calculation switch to tower mode and persistence of selected source mode.
+- 2026-03-06: Coverage feature now resets correctly with project actions: `Clear Calc` returns to manual-first state, and full `Clear` disables coverage calculation until elevation data is available again.
