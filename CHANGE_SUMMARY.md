@@ -13,3 +13,4 @@
 - 2026-03-05: Implemented strict-LOS-by-default in mesh-generator (UI + backend normalization) while keeping mesh_calculator library defaults backward compatible.
 - 2026-03-05: Added low-mast optimization warnings and edge-level mast-height propagation to keep link-analysis profiles consistent with the mast used during optimization.
 - 2026-03-05: Added cluster-count propagation (`num_clusters`) from route pipeline summaries and strict-LOS disconnect guidance in mesh-generator status/report output.
+- 2026-03-05: Fixed greedy tail behavior in mesh_calculator: unreachable route endpoints are no longer force-appended, reducing artificial endpoint tower clustering.
