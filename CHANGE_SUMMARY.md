@@ -22,3 +22,7 @@
 - 2026-03-06: Added structured optimization progress streaming from mesh_calculator through mesh-generator SSE, enabling stable UI progress tracking without parsing log text.
 - 2026-03-06: Added two route/step-aware progress bars (DP and Greedy) in mesh-generator’s Optimization Log panel with weighted phase percentages and per-algorithm error state.
 - 2026-03-06: Fixed visibility-link profile deselection in mesh-generator: same-link click toggles panel off, and hidden/cleared links now close stale profile panels automatically.
+- 2026-03-06: Fixed runtime tower-coverage resolution bugs: sources are now always normalized/snapped to requested coverage H3 resolution inside mesh_calculator, preventing stale-resolution `h3_index` behavior.
+- 2026-03-06: Corrected tower-coverage search ring sizing from edge-length-based to center-step-based expansion (plus safety ring), significantly reducing candidate over-expansion at higher coverage resolutions.
+- 2026-03-06: Improved runtime coverage responsiveness by batching LOS pair work in mesh_calculator and removing unnecessary LOS cache overhead in mesh-generator coverage execution.
+- 2026-03-06: Added regression tests for source-resolution snapping (`mesh_calculator`) and out-of-range coverage resolution rejection (`mesh-generator`).
