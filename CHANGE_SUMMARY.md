@@ -15,3 +15,7 @@
 - 2026-03-05: Added cluster-count propagation (`num_clusters`) from route pipeline summaries and strict-LOS disconnect guidance in mesh-generator status/report output.
 - 2026-03-05: Fixed greedy tail behavior in mesh_calculator: unreachable route endpoints are no longer force-appended, reducing artificial endpoint tower clustering.
 - 2026-03-05: Fixed mesh-generator project load parameter precedence so `config.yaml` settings (e.g., `mast_height_m`) override stale `status.json` values; prevents DP/greedy reruns from silently using old low-mast parameters.
+- 2026-03-06: Implemented DP search widening controls in mesh_calculator (gap-repair radius ladder + fallback initial reruns) with enriched search-debug export metadata consumed by mesh-generator filters.
+- 2026-03-06: Added hybrid dense LOS verification in mesh_calculator so coarse accepted links are rechecked with denser DEM sampling before final edge/coverage acceptance.
+- 2026-03-06: Added independent runtime tower-coverage resolution control end-to-end (`coverage_h3_resolution`) and source re-snap semantics in mesh-generator APIs/UI.
+- 2026-03-06: Updated runtime tower coverage to RF-serving attribution (`serving_tower_id`) while preserving nearest-source debug fields (`closest_tower_id`).
