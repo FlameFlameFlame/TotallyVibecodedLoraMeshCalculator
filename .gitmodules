@@ -1,0 +1,6 @@
+[submodule "mesh_calculator"]
+	path = mesh_calculator
+	url = /Users/timur/Documents/src/LoraMeshPlanner/mesh_calculator
+[submodule "mesh-generator"]
+	path = mesh-generator
+	url = /Users/timur/Documents/src/LoraMeshPlanner/mesh-generator
