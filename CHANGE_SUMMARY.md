@@ -21,3 +21,4 @@
 - 2026-03-06: Updated runtime tower coverage to RF-serving attribution (`serving_tower_id`) while preserving nearest-source debug fields (`closest_tower_id`).
 - 2026-03-06: Added structured optimization progress streaming from mesh_calculator through mesh-generator SSE, enabling stable UI progress tracking without parsing log text.
 - 2026-03-06: Added two route/step-aware progress bars (DP and Greedy) in mesh-generator’s Optimization Log panel with weighted phase percentages and per-algorithm error state.
+- 2026-03-06: Fixed visibility-link profile deselection in mesh-generator: same-link click toggles panel off, and hidden/cleared links now close stale profile panels automatically.
