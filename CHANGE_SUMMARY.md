@@ -7,3 +7,5 @@
 - 2026-03-05: Added standalone tower coverage compute module in mesh_calculator (`network/tower_coverage.py`) reusing shared LOS/path-loss policy.
 - 2026-03-05: Added mesh-generator UI actions for runtime coverage (`Calc Selected`, `Calc All Shown`, `Point Coverage`) and algorithm-aware tower source selection.
 - 2026-03-05: Added regression tests for runtime coverage API (`mesh-generator/tests/test_tower_coverage_api.py`) and standalone coverage behavior (`mesh_calculator/tests/test_tower_coverage_runtime.py`).
+- 2026-03-05: Added LOS/NLOS edge-state visibility improvements: mesh_calculator now exports `is_nlos`/`los_state` on edges, and mesh-generator can filter/render NLOS links explicitly.
+- 2026-03-05: Improved tower coverage UX so enabling the Tower Coverage layer auto-triggers runtime batch coverage calculation when data is not yet cached.
