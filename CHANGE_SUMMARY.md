@@ -36,3 +36,6 @@
 - 2026-03-06: Added terrain-adaptive +1 H3 auto-refinement controls in route pipeline and full-boundary grid export (`grid_cells_full.geojson`) with downstream mesh-generator layer support.
 - 2026-03-06: Runtime tower coverage now returns all radius cells (covered and uncovered) plus aggregate counts, with mesh-generator UI filters for cell state and full-boundary grid visualization.
 - 2026-03-06: Verified both repositories after these changes: `mesh_calculator` pytest (127 passed) and `mesh-generator` pytest (79 passed).
+- 2026-03-06: Corrected LOS physics regression in mesh_calculator: clearance now minimizes over sampled path obstruction (`terrain + earth curvature + Fresnel`) rather than evaluating only at max-terrain point; this removes false LOS links that appeared to pass through terrain in Gyumri outputs.
+- 2026-03-06: Updated runtime tower-coverage shadow casting to the same min-clearance sampled profile logic for terrain blocking consistency.
+- 2026-03-06: Added regression coverage for this case (`TestWorstClearanceNotEqualMaxTerrain`) and re-verified suites: `mesh_calculator` (128 passed), `mesh-generator` (79 passed).
