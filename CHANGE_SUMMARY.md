@@ -48,3 +48,4 @@
 - 2026-03-07: Upgraded search-hex visualization UX in mesh-generator with renamed layer (`Search Hexes (all attempts)`), scope filter, buffer-growth color mode (with legend), phase color mode, and richer search tooltips.
 - 2026-03-07: Lowered `gradient_refine_threshold_m_per_km` to `50` in local project config `projects/gyumri-greedy-tower5wtf/config.yaml`; verified trigger now fires for this route set (`p90=67.4 m/km`).
 - 2026-03-07: Fixed mesh-generator Search Hexes layer toggle wiring (`gapRepairHexes` checkbox id mismatch), resolving cases where search hexes did not render when enabled.
+- 2026-03-07: Set new default planning parameters across the stack to `mast_height_m=5` and `road_buffer_m=100` (mesh_calculator config defaults + mesh-generator UI/API/export defaults), with updated regression expectations.
