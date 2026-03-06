@@ -32,3 +32,7 @@
 - 2026-03-06: Added additive per-site endpoint heights (`site_height_m`) end-to-end: mesh-generator now edits/saves/loads/propagates site heights in routes, and mesh_calculator applies them as anchor-cell antenna offsets in route optimization and LOS/export/link-analysis metadata.
 - 2026-03-06: Fixed mesh_calculator route-pipeline logging crash (`unexpected keyword argument 'h3_index'`) when updating site anchor offsets, by replacing keyword-style logger kwargs with standard positional formatting.
 - 2026-03-06: Extended the logging compatibility fix across mesh_calculator visibility/export pipeline modules (`network/graph.py`, `parallel/los_compute.py`, `data/exporters.py`) to avoid additional `_log()` keyword-argument crashes during optimization runs.
+- 2026-03-06: Updated terrain model conservatism in mesh_calculator: H3 cell heights now use max DEM in cell polygon, LOS/Fresnel/coverage terrain blocking uses line-peak max elevation, and DP prunes unreachable endpoint-fallback artifacts.
+- 2026-03-06: Added terrain-adaptive +1 H3 auto-refinement controls in route pipeline and full-boundary grid export (`grid_cells_full.geojson`) with downstream mesh-generator layer support.
+- 2026-03-06: Runtime tower coverage now returns all radius cells (covered and uncovered) plus aggregate counts, with mesh-generator UI filters for cell state and full-boundary grid visualization.
+- 2026-03-06: Verified both repositories after these changes: `mesh_calculator` pytest (127 passed) and `mesh-generator` pytest (79 passed).
