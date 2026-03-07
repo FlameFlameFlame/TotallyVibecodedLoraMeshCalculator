@@ -1,5 +1,11 @@
 # Change Summary
 
+- 2026-03-07: Updated mesh_calculator route-planning LOS acceptance to a hardcoded practical RF rule: links now require link budget pass plus at most 40% first-Fresnel obstruction at the worst sampled point; fixed-meter clearance gating is no longer used for route-planning acceptance.
+- 2026-03-07: Upgraded mesh_calculator dense LOS verification to DEM-based bilinear sampling with adaptive local refinement around the worst obstruction intervals, preserving coarse-first and dense-second verification flow while improving terrain fidelity without globally shrinking sample spacing.
+- 2026-03-07: Standardized batch-parallel LOS execution in mesh_calculator via chunked `compute_los_batch(...)` result maps and switched graph visibility-edge and cell-coverage workloads to use the shared batch API instead of per-pair ad hoc thread pools.
+- 2026-03-07: Updated mesh_calculator LOS/export observability to report Fresnel obstruction ratio policy fields (`budget_and_fresnel_40pct`, obstruction ratio/margin, accepted-by-Fresnel-policy) and refreshed LOS documentation to match shipped behavior.
+- 2026-03-07: Added regression coverage for 40% Fresnel acceptance, dense-verification rejection, batch LOS determinism/symmetry, and exporter/debug metadata; verified `mesh_calculator` full suite is green (132 passed).
+
 - 2026-03-05: Fixed `mesh-generator` export parameter drift where `routes.json` used hardcoded values (`h3_resolution=8`, `frequency_hz=868000000`, `mast_height_m=28`) instead of current run/export settings.
 - 2026-03-05: Unified parameter propagation in `_save_project_to_dir` so `config.yaml`, `routes.json`, and `status.json` use the same merged parameter set.
 - 2026-03-05: Added regression test `mesh-generator/tests/test_save_project.py` to verify runtime parameters are preserved in exported `routes.json`.
@@ -49,3 +55,5 @@
 - 2026-03-07: Lowered `gradient_refine_threshold_m_per_km` to `50` in local project config `projects/gyumri-greedy-tower5wtf/config.yaml`; verified trigger now fires for this route set (`p90=67.4 m/km`).
 - 2026-03-07: Fixed mesh-generator Search Hexes layer toggle wiring (`gapRepairHexes` checkbox id mismatch), resolving cases where search hexes did not render when enabled.
 - 2026-03-07: Set new default planning parameters across the stack to `mast_height_m=5` and `road_buffer_m=100` (mesh_calculator config defaults + mesh-generator UI/API/export defaults), with updated regression expectations.
+- 2026-03-07: Completed Grid Provider refactor across both repos: grid bundle generation now happens immediately after elevation download in mesh-generator, mesh_calculator route/coverage flows consume `GridProvider` directly, and project save/load persists bundle/status metadata for provider restoration.
+- 2026-03-07: Added provider lifecycle UI support (explicit grid-provider status + readiness gating), finalized algorithm-aware grid/search layer rerendering, and validated the end-to-end migration with full green test suites (`mesh_calculator` 146 passed, `mesh-generator` 80 passed).
