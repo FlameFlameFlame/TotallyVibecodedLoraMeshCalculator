@@ -5,5 +5,5 @@
 	path = mesh-generator
 	url = https://github.com/FlameFlameFlame/mesh-generator.git
 [submodule "mesh-backend"]
-        path = mesh-backend
-        url = /Users/timur/Documents/src/LoraMeshPlanner/mesh-backend
+	path = mesh-backend
+	url = https://github.com/FlameFlameFlame/mesh-backend.git
