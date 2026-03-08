@@ -1,5 +1,59 @@
 # Mesh Calculator - Project Summary
 
+## 2026-03-08 mesh-generator UI Refactor
+
+### Sectioned Sidebar Layout
+- Refactored `mesh-generator` frontend from a toolbar-centric layout into four sidebar sections: `Projects`, `Preparation`, `Calculation Results`, and `Layers`.
+- Kept backend/API behavior unchanged and preserved core control IDs used by existing JS logic (`btn-download`, `btn-p2p`, `btn-optimize`, `project-select`, `chk-*`).
+- Added explicit layer subgrouping inside `Layers`: `Preparation Layers` and `Result Layers`.
+
+### UI State and Interaction Updates
+- Added collapsible section behavior with persisted open/closed state in localStorage (`meshUiSectionStateV1`).
+- Added `Site Management` toggle flow that shows/hides the site table/editor block.
+- Site management default is collapsed on first load, with persisted visibility state (`meshUiSiteManagementOpenV1`).
+
+### Styling and Responsiveness
+- Replaced old toolbar-focused CSS with section-card sidebar styling in `mesh-generator/generator/static/app.css`.
+- Preserved dark/light theme support while updating styles for the new containers.
+- Improved responsive behavior for narrower screens by stacking map/sidebar and relying on collapsible sections.
+
+### Test Contract Updates
+- Removed dependency on `#toolbar` selectors in E2E smoke tests.
+- Added stable Save selector `#btn-save-project`.
+- Extended Playwright smoke checks to assert presence of all four section headers, both layer subgroup headers, and key control IDs.
+- Verified updated smoke test passes: `RUN_E2E=1 poetry run pytest -q tests/e2e/test_playwright_smoke.py` → `1 passed`.
+
+## 2026-03-07 LOS/Fresnel Knowledge Export
+
+### Route-Planning LOS Policy
+- Route-planning LOS in `mesh_calculator` now means: `path_loss_db <= link_budget_db` and worst sampled first-Fresnel obstruction ratio `<= 0.4`.
+- `LOSResult.clearance_m` still means worst full-zone clearance in meters and is retained for diffraction/path-loss math and NLOS export classification.
+- `min_fresnel_clearance_m` remains in config for backward-compatible parsing and cache identity, but route-planning acceptance no longer depends on it.
+
+### Terrain Verification Model
+- The planner keeps a two-stage LOS flow: coarse cheap screening first, dense DEM verification only for links that survive the coarse pass.
+- Coarse screening still uses H3/grid-path terrain sampling for speed.
+- Dense verification samples the DEM directly along the straight RF line, now using bilinear interpolation rather than nearest-pixel lookup.
+- Dense verification adaptively refines the worst local intervals instead of globally sampling the entire path at very high density.
+
+### Batch Parallelism
+- The intended parallelism is across many LOS links, not inside one LOS link.
+- `compute_los_batch(...)` is now the shared batch API: callers gather `(src_h3, dst_h3)` pairs, compute them concurrently in chunks, and receive a dict keyed by pair.
+- `network/graph.py` visibility-edge and cell-coverage updates now use this shared batch API.
+- DEM reads remain serialized inside `ElevationProvider` with a lock, so intra-link threading is still not expected to help.
+
+### DEM Reads and Profiling Guidance
+- DEM reads are elevation raster lookups from the GeoTIFF, mainly through `ElevationProvider.get_elevation(...)` and `get_elevation_bilinear(...)`.
+- If LOS becomes slow, likely bottlenecks are: too many dense samples per link, cache misses, or contention on the raster read lock.
+- Practical profiling approach: run `cProfile` around a real LOS-heavy test or route pipeline, then inspect cumulative time for `core/elevation.py`, `physics/fresnel.py`, and `physics/los.py`.
+
+### Recent Change Summary
+- Hardcoded practical 40% Fresnel obstruction rule for route-planning acceptance.
+- Dense DEM verification upgraded to bilinear sampling plus adaptive local refinement.
+- Batch LOS execution standardized and reused across graph workloads.
+- Exported edge-debug metadata renamed from fixed-clearance policy fields to Fresnel-obstruction policy fields.
+- Verified `mesh_calculator` full test suite after these changes: 132 passed.
+
 ## ✅ Complete Implementation
 
 A comprehensive Python rewrite of h3-mesh-placement with hierarchical site connectivity, complete unit tests, synthetic test data, and a detailed web frontend plan.
