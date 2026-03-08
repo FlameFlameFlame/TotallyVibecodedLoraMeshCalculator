@@ -21,6 +21,7 @@
 - Moved dark mode toggle (`btn-theme`) from Preparation into the map toolbar, positioned to the left of the `Layers` button with dedicated toolbar styling.
 - Reworked previous-result management into `Optimization`: removed Projects-level load button, added a clickable `Previous Results` list under settings (human-readable run timestamp + towers/clusters summary), auto-load on selection, and added per-result delete cross with backend `/api/projects/delete-run` support.
 - Made `Previous Results` list collapsible within `Optimization`, with persisted expand/collapse state in localStorage.
+- Added unsaved-changes warning on `New Project`: when current project is dirty, user must confirm before in-memory state is cleared.
 
 ### Tooltip Coverage
 - Added/kept explicit tooltips for all optimization settings controls:
