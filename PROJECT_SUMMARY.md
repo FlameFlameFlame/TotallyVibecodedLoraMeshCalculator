@@ -12,6 +12,7 @@
 - Moved Site Management out of sidebar into a dedicated always-visible floating window anchored below the `Layers` map button; moved status bar to the top of the sidebar and removed the Optimization `Clear` button.
 - Normalized top map-button spacing by wrapping `Layers`, `Coverage`, and `Profile` in a shared flex toolbar with consistent gap (removed hardcoded per-button `left` offsets).
 - Tightened Site Management window size and added a persistent empty-state list row plus minimum table height so the site list area is visibly reserved before any sites are added.
+- Moved `+ Add Site` into the Site Management floating panel; replaced bottom detect/delete controls with row-level site actions (small move pencil + delete cross), added map-click site reposition flow, made city detection auto-trigger when `City` checkbox is enabled, and enforced city-boundary recalculation after site position edits.
 
 ### Tooltip Coverage
 - Added/kept explicit tooltips for all optimization settings controls:
