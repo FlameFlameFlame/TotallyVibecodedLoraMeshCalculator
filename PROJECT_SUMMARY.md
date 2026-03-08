@@ -16,6 +16,7 @@
 - Added a top-right `Info` button that opens a floating `Usage Guide` window with step-by-step generator workflow instructions (plain text), including outside-click and `Esc` close behavior.
 - Refined Site Management layout to remove horizontal scrolling and keep content fully visible (wider panel + fixed table layout), restyled the `+ Add Site` button, and anchored the `Info` button to the top-right corner of the map area (not the full page width).
 - Added `Clear Project` button to `Projects` menu, wired to existing in-memory clear flow (`doClear`) that resets current UI/map state while keeping project files on disk.
+- Added `Load Previous Results` button to `Projects` menu; it fetches project run history and loads an earlier saved run into the map (with disabled state and tooltip reasons when unavailable).
 
 ### Tooltip Coverage
 - Added/kept explicit tooltips for all optimization settings controls:
