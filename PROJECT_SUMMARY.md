@@ -15,6 +15,7 @@
 - Moved `+ Add Site` into the Site Management floating panel; replaced bottom detect/delete controls with row-level site actions (small move pencil + delete cross), added map-click site reposition flow, made city detection auto-trigger when `City` checkbox is enabled, and enforced city-boundary recalculation after site position edits.
 - Added a top-right `Info` button that opens a floating `Usage Guide` window with step-by-step generator workflow instructions (plain text), including outside-click and `Esc` close behavior.
 - Refined Site Management layout to remove horizontal scrolling and keep content fully visible (wider panel + fixed table layout), restyled the `+ Add Site` button, and anchored the `Info` button to the top-right corner of the map area (not the full page width).
+- Added `Clear Project` button to `Projects` menu, wired to existing in-memory clear flow (`doClear`) that resets current UI/map state while keeping project files on disk.
 
 ### Tooltip Coverage
 - Added/kept explicit tooltips for all optimization settings controls:
