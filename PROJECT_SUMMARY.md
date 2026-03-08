@@ -23,6 +23,7 @@
 - Made `Previous Results` list collapsible within `Optimization`, with persisted expand/collapse state in localStorage.
 - Added unsaved-changes warning on `New Project`: when current project is dirty, user must confirm before in-memory state is cleared.
 - Reused the exact Site Management delete-action classes for `Previous Results` delete (`✕`) so both controls share the same styling path.
+- Restyled the `Previous Results` collapse toggle to a dedicated compact control (separate from section toggle styling) for cleaner visual consistency.
 
 ### Tooltip Coverage
 - Added/kept explicit tooltips for all optimization settings controls:
