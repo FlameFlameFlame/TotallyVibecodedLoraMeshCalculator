@@ -7,6 +7,7 @@
 - Moved Mesh Calculator settings from `Preparation` into `Optimization`.
 - Removed the old `Settings` toggle button from `Preparation`.
 - Settings are now always visible in the `Optimization` section (no hidden panel toggle).
+- Removed `H3 resolution` and `Coverage radius` from the Optimization settings UI because those values are hardcoded or managed elsewhere.
 
 ### Tooltip Coverage
 - Added/kept explicit tooltips for all optimization settings controls:
