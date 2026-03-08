@@ -1,5 +1,25 @@
 # Mesh Calculator - Project Summary
 
+## 2026-03-08 mesh-generator Optimization Settings Relocation
+
+### Sidebar/Section Updates
+- Renamed the sidebar section `Calculation Results` to `Optimization`.
+- Moved Mesh Calculator settings from `Preparation` into `Optimization`.
+- Removed the old `Settings` toggle button from `Preparation`.
+- Settings are now always visible in the `Optimization` section (no hidden panel toggle).
+
+### Tooltip Coverage
+- Added/kept explicit tooltips for all optimization settings controls:
+  - H3 resolution, frequency, mast height, TX power, antenna gain, RX sensitivity, LOS policy, road buffer, coverage radius, max towers/route.
+  - Save settings button now has a tooltip as well.
+
+### JS Cleanup
+- Removed unused `toggleSettings()` function from `mesh-generator/generator/static/app.js`.
+
+### Validation
+- Verified smoke E2E passes from `mesh-generator`:
+  - `RUN_E2E=1 poetry run pytest -q tests/e2e/test_playwright_smoke.py` → `1 passed`.
+
 ## 2026-03-08 mesh-generator UI Refactor
 
 ### Sectioned Sidebar Layout
