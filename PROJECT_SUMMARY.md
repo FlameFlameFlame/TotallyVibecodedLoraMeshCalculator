@@ -20,6 +20,7 @@
 - Fixed Coverage popup interaction during map dragging (no dismiss on pan mouse-up click), and updated coverage-busy visuals to a solid grayed-out state with tower-coverage progress bar emphasis (no new progress bar for road coverage flow).
 - Moved dark mode toggle (`btn-theme`) from Preparation into the map toolbar, positioned to the left of the `Layers` button with dedicated toolbar styling.
 - Reworked previous-result management into `Optimization`: removed Projects-level load button, added a clickable `Previous Results` list under settings (human-readable run timestamp + towers/clusters summary), auto-load on selection, and added per-result delete cross with backend `/api/projects/delete-run` support.
+- Made `Previous Results` list collapsible within `Optimization`, with persisted expand/collapse state in localStorage.
 
 ### Tooltip Coverage
 - Added/kept explicit tooltips for all optimization settings controls:
