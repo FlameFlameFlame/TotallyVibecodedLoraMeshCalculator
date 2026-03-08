@@ -1,5 +1,6 @@
 # Change Summary
 
+- 2026-03-08: Split web ownership across repos: `mesh-generator` migrated to a frontend-only Vite app (`/api` -> `/api/v2` adapter, Vitest tests, Python backend removed) and `mesh-backend` now serves the migrated planner backend under `/api/v2` plus frontend static assets from `FRONTEND_DIST_DIR`.
 - 2026-03-07: Updated mesh_calculator route-planning LOS acceptance to a hardcoded practical RF rule: links now require link budget pass plus at most 40% first-Fresnel obstruction at the worst sampled point; fixed-meter clearance gating is no longer used for route-planning acceptance.
 - 2026-03-07: Upgraded mesh_calculator dense LOS verification to DEM-based bilinear sampling with adaptive local refinement around the worst obstruction intervals, preserving coarse-first and dense-second verification flow while improving terrain fidelity without globally shrinking sample spacing.
 - 2026-03-07: Standardized batch-parallel LOS execution in mesh_calculator via chunked `compute_los_batch(...)` result maps and switched graph visibility-edge and cell-coverage workloads to use the shared batch API instead of per-pair ad hoc thread pools.

@@ -1,5 +1,24 @@
 # Mesh Calculator - Project Summary
 
+## 2026-03-08 Frontend/Backend Split Cutover
+
+### Repository Ownership
+- `mesh-generator` is now frontend-only (Vite app, `index.html` + `src/`, Vitest tests).
+- `mesh-backend` now owns planner API/state and serves `/api/v2/*`.
+- `mesh-backend` also serves built frontend static files from `FRONTEND_DIST_DIR` (default: `mesh-generator/dist`).
+
+### Runtime Flow
+- Frontend development:
+  - `cd mesh-generator && npm install && npm run dev`
+  - Vite proxies `/api/v2/*` to backend (`BACKEND_URL`, default `http://127.0.0.1:8000`).
+- Production-like local run:
+  1. `cd mesh-generator && npm run build`
+  2. `cd mesh-backend && FRONTEND_DIST_DIR=../mesh-generator/dist uv run uvicorn app.main:app --host 127.0.0.1 --port 8000`
+
+### API Contract
+- Canonical backend API prefix is now `/api/v2`.
+- Legacy direct `/api/health` route from old backend stack is removed from `mesh-backend`.
+
 ## 2026-03-08 mesh-generator Optimization Settings Relocation
 
 ### Sidebar/Section Updates
