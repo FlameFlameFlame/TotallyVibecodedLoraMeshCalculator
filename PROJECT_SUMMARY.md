@@ -17,6 +17,7 @@
 - Refined Site Management layout to remove horizontal scrolling and keep content fully visible (wider panel + fixed table layout), restyled the `+ Add Site` button, and anchored the `Info` button to the top-right corner of the map area (not the full page width).
 - Added `Clear Project` button to `Projects` menu, wired to existing in-memory clear flow (`doClear`) that resets current UI/map state while keeping project files on disk.
 - Added `Load Previous Results` button to `Projects` menu; it fetches project run history and loads an earlier saved run into the map (with disabled state and tooltip reasons when unavailable).
+- Fixed Coverage popup interaction during map dragging (no dismiss on pan mouse-up click), and updated coverage-busy visuals to a solid grayed-out state with tower-coverage progress bar emphasis (no new progress bar for road coverage flow).
 
 ### Tooltip Coverage
 - Added/kept explicit tooltips for all optimization settings controls:
