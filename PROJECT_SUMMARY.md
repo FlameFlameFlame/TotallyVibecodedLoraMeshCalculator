@@ -10,6 +10,7 @@
 - Removed `H3 resolution` and `Coverage radius` from the Optimization settings UI because those values are hardcoded or managed elsewhere.
 - Removed export of `h3_resolution` and `max_coverage_radius_m` from project parameter payloads (`config.yaml` and `routes.json`) to keep exported config aligned with visible UI settings and fixed internal defaults.
 - Moved Site Management out of sidebar into a dedicated always-visible floating window anchored below the `Layers` map button; moved status bar to the top of the sidebar and removed the Optimization `Clear` button.
+- Normalized top map-button spacing by wrapping `Layers`, `Coverage`, and `Profile` in a shared flex toolbar with consistent gap (removed hardcoded per-button `left` offsets).
 
 ### Tooltip Coverage
 - Added/kept explicit tooltips for all optimization settings controls:
