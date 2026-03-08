@@ -25,6 +25,7 @@
 - Reused the exact Site Management delete-action classes for `Previous Results` delete (`✕`) so both controls share the same styling path.
 - Restyled the `Previous Results` collapse toggle to a dedicated compact control (separate from section toggle styling) for cleaner visual consistency.
 - Moved `towers/route` input into `Mesh Calculator Settings` and added an explicit line break after the settings title text.
+- Standardized `Towers per route` field styling with the rest of mesh settings (stacked label above full-width input) and kept it at the top of the settings list.
 - Made the floating `Site Management` section collapsible via header toggle, reusing section-state persistence in localStorage.
 
 ### Tooltip Coverage
