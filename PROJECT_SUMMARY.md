@@ -25,6 +25,7 @@
 - Reused the exact Site Management delete-action classes for `Previous Results` delete (`✕`) so both controls share the same styling path.
 - Restyled the `Previous Results` collapse toggle to a dedicated compact control (separate from section toggle styling) for cleaner visual consistency.
 - Moved `towers/route` input into `Mesh Calculator Settings` and added an explicit line break after the settings title text.
+- Made the floating `Site Management` section collapsible via header toggle, reusing section-state persistence in localStorage.
 
 ### Tooltip Coverage
 - Added/kept explicit tooltips for all optimization settings controls:
