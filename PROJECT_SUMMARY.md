@@ -13,6 +13,7 @@
 - Normalized top map-button spacing by wrapping `Layers`, `Coverage`, and `Profile` in a shared flex toolbar with consistent gap (removed hardcoded per-button `left` offsets).
 - Tightened Site Management window size and added a persistent empty-state list row plus minimum table height so the site list area is visibly reserved before any sites are added.
 - Moved `+ Add Site` into the Site Management floating panel; replaced bottom detect/delete controls with row-level site actions (small move pencil + delete cross), added map-click site reposition flow, made city detection auto-trigger when `City` checkbox is enabled, and enforced city-boundary recalculation after site position edits.
+- Added a top-right `Info` button that opens a floating `Usage Guide` window with step-by-step generator workflow instructions (plain text), including outside-click and `Esc` close behavior.
 
 ### Tooltip Coverage
 - Added/kept explicit tooltips for all optimization settings controls:
