@@ -22,6 +22,7 @@
 - Reworked previous-result management into `Optimization`: removed Projects-level load button, added a clickable `Previous Results` list under settings (human-readable run timestamp + towers/clusters summary), auto-load on selection, and added per-result delete cross with backend `/api/projects/delete-run` support.
 - Made `Previous Results` list collapsible within `Optimization`, with persisted expand/collapse state in localStorage.
 - Added unsaved-changes warning on `New Project`: when current project is dirty, user must confirm before in-memory state is cleared.
+- Aligned `Previous Results` delete (`✕`) button style with Site Management row delete button dimensions/appearance.
 
 ### Tooltip Coverage
 - Added/kept explicit tooltips for all optimization settings controls:
